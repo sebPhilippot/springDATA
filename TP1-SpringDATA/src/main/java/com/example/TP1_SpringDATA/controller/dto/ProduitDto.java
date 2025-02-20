@@ -1,29 +1,15 @@
-package com.example.TP1_SpringDATA.model;
+package com.example.TP1_SpringDATA.controller.dto;
 
+public class ProduitDto {
 
-import jakarta.persistence.*;
-
-import java.util.List;
-
-@Entity
-public class Produit {
-    @Id
-    @GeneratedValue
     private Long id;
-
     private String libelle;
-
     private String couleur;
 
-    @ManyToMany
-    private List<Categorie> categories;
-
-    public Produit(String couleur, String libelle) {
-        this.couleur = couleur;
+    public ProduitDto(Long id, String libelle, String couleur) {
+        this.id = id;
         this.libelle = libelle;
-    }
-
-    public Produit() {
+        this.couleur = couleur;
     }
 
     public Long getId() {
@@ -48,13 +34,5 @@ public class Produit {
 
     public void setCouleur(String couleur) {
         this.couleur = couleur;
-    }
-
-    public List<Categorie> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<Categorie> categories) {
-        this.categories = categories;
     }
 }
